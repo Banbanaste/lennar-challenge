@@ -1,3 +1,26 @@
+## Intro
+
+Man time flew by on that one. I started implementing 1.1 - 1.3 and quickly realized I wouldn't have time to flesh out the marketing site.
+
+So what I ended up doing was 1.1, 1.2, 1.3, and 4.1.
+
+I would have like to better organize the styles with styled components, but for the sake of time I used tailwind.
+
+If I had to finish this project I would:
+
+- prioritize organizing the styles into manageable style files at the component level
+- refactor the "Navs" component.
+  - while it started out okay when it was just the mobile nav. Having multiple navs in there smells like an avenue for abstraction into multiple components.
+- tackle the svg error/warnings. Because I decided to copy pasta svgs from the figma there are some jsx errors (camel casing)
+- Maybe replace the svgs with an icon library. Other than the logo the svgs looks pretty standard.
+- Finally dive into the free trial API. There some questions that need answering before then, like what happens when "Start your free trial is clicked on the dropdown mobile menu". All other instances of the button have an email input.
+
+## In Summary
+
+I had fun tackling this. In hindsight maybe organizing the workload a bit more and sacrificing features may have been a better route.
+
+Thanks and please reach out if you have any questions!
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
