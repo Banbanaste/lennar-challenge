@@ -1,14 +1,14 @@
 import { useState, FC, ReactElement } from "react";
 import SVG from "../svg";
 
-interface HeaderProps {
+interface MobileHeaderProps {
   onClick: () => void;
   children: ReactElement;
 }
 
 // possible abstraction to its own component
 // encapsulated in nav for now
-const Header: FC<HeaderProps> = ({ onClick, children }) => {
+const MobileHeader: FC<MobileHeaderProps> = ({ onClick, children }) => {
   return (
     <header className="flex items-center justify-between w-full">
       <SVG.Logo />
@@ -24,7 +24,7 @@ const Header: FC<HeaderProps> = ({ onClick, children }) => {
 // * * it currently has 4 sections
 // * possibility for dynamic content?
 // * Styled Components refactor?
-export const Nav = () => {
+const MobileNav = () => {
   const [showDropdown, setDropdown] = useState(false);
 
   const onClick = () => {
@@ -37,16 +37,16 @@ export const Nav = () => {
 
   return (
     <>
-      <nav className="relative">
-        <Header onClick={onClick}>
+      <nav className="relative block md:hidden">
+        <MobileHeader onClick={onClick}>
           <SVG.Menu />
-        </Header>
+        </MobileHeader>
         <div
           className={`pt-4 px-5 pb-6 bg-white rounded-lg absolute -top-fullnav ${ANIMATED} z-10`}
         >
-          <Header onClick={onClick}>
+          <MobileHeader onClick={onClick}>
             <SVG.Close />
-          </Header>
+          </MobileHeader>
           <ul className="my-8 text-slate-700 p-none w-full">
             <li className="mb-5">
               <a>Product</a>
@@ -79,3 +79,40 @@ export const Nav = () => {
     </>
   );
 };
+
+const FullNav = () => {
+  return (
+    <header className="hidden md:flex items-center justify-between w-full">
+      <div className="flex items-center">
+        <SVG.Logo />
+        <ul className="ml-10 flex gap-x-8 items-baseline">
+          <li className="">
+            <a>Product</a>
+          </li>
+          <li className="">
+            <a>Features</a>
+          </li>
+          <li className="">
+            <a>Marketplace</a>
+          </li>
+          <li className="">
+            <a>Company</a>
+          </li>
+        </ul>
+      </div>
+      <div className="flex items-center gap-x-6">
+        <a>Login</a>
+        <button className="px-4 py-3 bg-gray-600 rounded-md w-full">
+          Start free trial
+        </button>
+      </div>
+    </header>
+  );
+};
+
+export const Navs = () => (
+  <>
+    <MobileNav />
+    <FullNav />
+  </>
+);
